@@ -23,4 +23,25 @@ public class Conta{
         return condicao;
     }
 
+
+    public double depositar(double saldo,double deposito ) {
+        if (deposito > 0){
+            saldo += deposito;
+        }if (deposito < 0){
+            saldo += 0;
+        }
+        return  saldo;
+    }
+
+
+    public double sacar(double saldo, double saque, String tipoConta){
+        if (saldo > saque && tipoConta.equals("Corrente")){
+            double porcentagem = saque / 100;
+            saldo -= saque;
+            saque -= porcentagem;
+        }if (saldo > saque && tipoConta.equals("Poupança")){
+            saldo -= saque;
+        }
+        return saque;
+    }
 }
